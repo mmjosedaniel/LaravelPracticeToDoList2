@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'TaskController@index');
+Route::post('/', 'TaskController@store');
+Route::delete('/{id}/delete', 'TaskController@delete');
