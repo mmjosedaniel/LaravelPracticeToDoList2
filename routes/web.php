@@ -12,5 +12,10 @@
 */
 
 Route::get('/', 'TaskController@index');
+
 Route::post('/', 'TaskController@store');
+
+Route::get('/{id}/edit', 'TaskController@edit');
+Route::put('/{id}', 'TaskController@update');
+
 Route::delete('/{id}/delete', 'TaskController@delete');

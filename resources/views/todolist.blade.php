@@ -11,6 +11,16 @@
     <br>
     
     <section>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            
+        @endif
         <form action="/" method="POST">
         @csrf
             <div class="form-group">
@@ -35,7 +45,12 @@
                     @csrf
                     @method('delete')
                         <td>
-                            <button type="submit" class="btn btn-primary">Delente</button>
+                            <button type="submit" class="btn btn-danger">Delente</button>
+                        </td>
+                    </form>
+                    <form action="/{{ $task->id }}/edit" method="GET">
+                        <td>
+                            <button type="submit" class="btn btn-primary">edit</button>
                         </td>
                     </form>
                 </tr>
